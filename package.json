@@ -1,0 +1,47 @@
+{
+  "name": "l-digital",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp watch --map --sync",
+    "show": "gulp watch --map --sync --tunel",
+    "dev-cross": "gulp watch --map --sync --cross",
+    "prod": "gulp build --clean --media --cross"
+  },
+  "dependencies": {
+    "imagemin-webp": "^6.0.0",
+    "jshint": "^2.11.0",
+    "normalize.css": "^8.0.1",
+    "smart-grid": "^2.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "browser-sync": "^2.26.12",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-clone": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^4.0.1",
+    "node-sass-tilde-importer": "^1.0.2"
+  },
+  "browserList": "> 0.05",
+  "description": ""
+}

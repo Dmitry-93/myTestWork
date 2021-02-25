@@ -1,0 +1,273 @@
+// Базовые общие стили
+@import "~normalize.css/normalize";
+* {
+	box-sizing: border-box;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 24px;
+	word-break: break-word;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 1.25em;
+}
+img {
+	max-width: 100%;
+}
+a {
+	text-decoration: none;
+}
+.topMenu {
+	display: block;
+	margin: 0;
+	background-color: #444;
+	width: fit-content;
+	a {
+		color: teal;
+		white-space: nowrap;
+		&:hover {
+			color: greenyellow;
+		}
+	}
+	li {
+		margin-left: 30px;
+		list-style: square;
+		padding-right: 15px;
+		@media(max-width: 768px) {
+			margin-left: 0;
+			padding-left: 0;
+			list-style: none;
+		}
+	}
+	&--lvl1 {
+		display: none;
+		top: 100%;
+		border: 1px solid #222;
+		position: absolute;
+		@media(max-width: 768px) {
+			width: 100%;
+		}
+		&>li {
+			list-style: circle;
+			&:nth-child(1) {
+				list-style: disc;
+				margin-left: 0;
+				@media(max-width: 768px) {
+					list-style: none;
+				}
+			}
+			@media(max-width: 768px) {
+				list-style: none;
+			}
+		}
+	}
+	&--lvl2 {
+		display: none;
+		left: 100%;
+		top: 0;
+		border: 1px solid #222;
+		position: absolute;
+		@media(max-width: 768px) {
+			position: initial;
+			border: none;
+		}
+		&.open {display: block;}
+		&>li {
+			&:nth-child(1) {
+				margin-left: 0;
+			}
+		}
+	}
+	&__more {
+		display: none;
+		width: 50px;
+		margin-left: 30px;
+		color: teal;
+		svg {
+			transition: .3s;
+			transform: rotate(90deg);
+			fill: teal;
+		}
+		@media(max-width: 768px) {
+			display: inline;
+		}
+		&.open {
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	@media(max-width: 768px) {
+		padding-left: 20px;
+	}
+}
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	width: auto;
+}
+.container {
+	width: 100%;
+	background-color: #555;
+	padding: 20px;
+	width: 100%;
+	&--fullpage {
+		min-height: 100vh;
+		display: flex;
+	}
+}
+.centerBlock {
+	margin: auto;
+	background-color: #444;
+	border: 1px solid #222;
+	border-radius: 4px;
+	width: 100%;
+	max-width: 1400px;
+}
+
+.catalog {
+	&__header {
+		width: 100%;
+		height: 50px;
+		background-color: #222;
+		position: relative;
+		cursor: pointer;
+		display: flex;
+		@media(max-width: 768px) {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+	}
+	&__section {
+		width: 100%;
+		padding: 50px 100px;
+    @media(max-width: 768px) {
+			padding: 30px 20px;
+    }
+		.wrapper {
+			margin: 0 -20px;
+			@media(max-width: 768px) {
+				margin: 0;
+			}
+		}
+	}
+	&__item {
+		width: calc(25% - 40px);
+		margin: 20px;
+		@media(max-width: 768px) {
+			width: 100%;
+			margin: 20px 0;
+		}
+	}
+}
+
+.product {
+	background-color: #222;
+	color: teal;
+	display: flex;
+	flex-direction: column;
+	padding:  30px 20px;
+	cursor: move;
+	&__title {
+		width: 100%;
+		margin: 0 0 30px;
+		text-align: center;
+		font-family: Tahoma, Geneva, sans-serif;
+		cursor: pointer;
+	}
+	&__price {
+		font-size: 1.2em;
+		margin: auto 0 40px;
+		text-align: center;
+	}
+	.buy {
+		display: block;
+		width: fit-content;
+		margin: 0 auto;
+		border: 2px solid teal;
+		text-transform: uppercase;
+		padding: .5em 1em;
+		font-size: .8em;
+		cursor: pointer;
+	}
+}
+.char {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 4px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid teal;
+	&:nth-last-child(3) {
+		margin-bottom: 40px;
+	}
+	&__name {
+		padding-right: 15px;
+	}
+}
+
+.catalog__header:hover .topMenu--lvl1{
+	display: block;
+}
+.topMenu__link:hover .topMenu  {
+	@media(min-width: 769px) {
+		display: block;
+	}
+}
+
+.catalog__header {
+	.menuBtn {
+		margin: auto;
+		display: none;
+		color: teal;
+		@media(max-width: 768px) {
+			display: inline-flex;
+		}
+	}
+
+}
+
+.editName {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	top: 20%;
+	left: calc(50% - 300px);
+	width: 600px;
+	padding: 50px;
+	background-color: #444;
+	border: 1px solid #222;
+	flex-wrap: wrap;
+	@media(max-width: 768px) {
+		width: calc(100% - 40px);
+		left: 20px;
+	}
+
+	.row {
+		width: 100%;
+		display: flex;
+	}
+	input, input::placeholder {
+		width: 50%;
+		color: #333;
+		margin: 15px;
+	}
+	#sendChangeName {
+		margin: 50px auto 0;
+    display: block;
+		cursor: pointer;
+	}
+	.btnClose {
+		cursor: pointer;
+    display: inline-block;
+    margin-left: auto;
+		transition: .5s;
+		color: red;
+		&:hover {
+			color: teal;
+		}
+	}
+}
+
+.selected {
+  opacity: 0.6;
+}
